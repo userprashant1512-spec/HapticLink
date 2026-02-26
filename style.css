@@ -1,0 +1,204 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+/* Dashboard Container */
+.dashboard {
+  width: 95%;
+  max-width: 900px;
+  padding: 25px;
+}
+
+/* Top Bar */
+.top-bar {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.top-bar h1 {
+  font-size: 32px;
+  color: #38bdf8;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+.connection-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* LED Indicator */
+.led {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: red;
+  box-shadow: 0 0 10px red;
+}
+
+.led.connected {
+  background: #22c55e;
+  box-shadow: 0 0 12px #22c55e;
+}
+
+.led.disconnected {
+  background: #ef4444;
+  box-shadow: 0 0 12px #ef4444;
+}
+
+/* Panels */
+.sensor-panel,
+.control-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.1);
+}
+
+.sensor-panel h2,
+.control-panel h2 {
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+/* Cards Grid */
+.sensor-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 18px;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.card h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+.sensor-value {
+  font-size: 22px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* Flame Alert Animation */
+.flame-card.alert {
+  animation: pulseAlert 1s infinite;
+  border: 1px solid #ef4444;
+}
+
+@keyframes pulseAlert {
+  0% { box-shadow: 0 0 5px #ef4444; }
+  50% { box-shadow: 0 0 25px #ef4444; }
+  100% { box-shadow: 0 0 5px #ef4444; }
+}
+
+/* Control Buttons */
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.btn {
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.btn-connect {
+  background: #0ea5e9;
+  color: white;
+  box-shadow: 0 0 10px #0ea5e9;
+}
+
+.btn-disconnect {
+  background: #f97316;
+  color: white;
+  box-shadow: 0 0 10px #f97316;
+}
+
+.btn-listen {
+  background: #22c55e;
+  color: white;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.btn-stop {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 0 10px #ef4444;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+/* Distance Danger Colors */
+.safe { color: #22c55e; }
+.caution { color: #facc15; }
+.danger { color: #ef4444; }
+
+/* Event Log */
+.log-card {
+  grid-column: span 2;
+}
+
+.log-box {
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 12px;
+  text-align: left;
+  background: rgba(0,0,0,0.3);
+  padding: 8px;
+  border-radius: 8px;
+}

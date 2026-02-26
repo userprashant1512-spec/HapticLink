@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" href="./Gemini_Generated_Image_assb6passb6passb-removebg-preview.png">
+  <title>HapticLink Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- 🔷 Header -->
+    <header class="top-bar">
+      <h1>HapticLink</h1>
+      <p class="subtitle">Assistive Haptic Communication System</p>
+
+      <div class="connection-status">
+        <span class="led disconnected" id="led"></span>
+        <span id="status">Not Connected</span>
+      </div>
+    </header>
+
+    <!-- 🔷 Sensor Panel -->
+    <section class="sensor-panel">
+      <h2>Sensor Monitoring</h2>
+
+      <div class="card">
+        <h3>Ultrasonic Distance</h3>
+        <p id="distance" class="sensor-value">-- cm</p>
+      </div>
+
+      <div class="card">
+        <h3>Battery Level</h3>
+        <p id="battery" class="sensor-value">-- %</p>
+      </div>
+
+      <div class="card">
+        <h3>IR Sensor</h3>
+        <p id="ir" class="sensor-value">--</p>
+      </div>
+
+      <div class="card flame-card">
+        <h3>Flame Detection</h3>
+        <p id="flame" class="sensor-value">--</p>
+      </div>
+
+      <div class="card">
+        <h3>Last Vibration Trigger</h3>
+        <p id="lastTrigger" class="sensor-value">None</p>
+      </div>
+
+      <div class="card log-card">
+        <h3>Event Log</h3>
+        <div id="eventLog" class="log-box"></div>
+      </div>
+    </section>
+
+    <!-- 🔷 Control Panel -->
+    <section class="control-panel">
+      <h2>Device Controls</h2>
+
+      <div class="controls">
+        <button class="btn btn-connect" onclick="connectBLE()">Connect</button>
+        <button class="btn btn-disconnect" onclick="disconnectBLE()">Disconnect</button>
+        <button class="btn btn-listen" onclick="startListening()">Start Listening</button>
+        <button class="btn btn-stop" onclick="sendCommand('STOP')">Stop Vibration</button>
+      </div>
+    </section>
+
+    <!-- 🔷 Footer -->
+    <footer>
+      Made by AIML Department| HapticLink © 2026
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
